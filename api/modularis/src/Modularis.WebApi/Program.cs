@@ -1,4 +1,5 @@
-using Modularis.HealthModule.UseCases.Health.Check;
+using Modularis.HealthModule.UseCases.Health;
+using Modularis.SkuModule.UseCases.Create;
 
 var logger = Log.Logger = new LoggerConfiguration()
   .Enrich.FromLogContext()
@@ -64,7 +65,8 @@ void ConfigureMediatR(IServiceCollection services)
 {
     var mediatRAssemblies = new[]
     {
-        Assembly.GetAssembly(typeof(CheckHealthQuery))
+        Assembly.GetAssembly(typeof(HealthQuery)),
+        Assembly.GetAssembly(typeof(CreateSkuCommand))
     };
 
     services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(mediatRAssemblies!));

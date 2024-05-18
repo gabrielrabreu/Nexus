@@ -1,4 +1,4 @@
-﻿namespace Modularis.WebApi;
+﻿namespace Modularis.WebApi.Endpoints;
 
 public abstract class EndpointBase
 {

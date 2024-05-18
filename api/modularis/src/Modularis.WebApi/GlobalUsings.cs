@@ -6,7 +6,7 @@ global using Microsoft.OpenApi.Models;
 global using Modularis.Infrastructure;
 global using Modularis.Infrastructure.Data;
 global using Modularis.SharedKernel;
-global using Modularis.WebApi;
+global using Modularis.WebApi.Endpoints;
 global using Serilog;
 global using Serilog.Extensions.Logging;
 global using System.Reflection;

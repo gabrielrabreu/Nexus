@@ -18,10 +18,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Skus\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Modularis.Infrastructure\Modularis.Infrastructure.csproj" />
   </ItemGroup>
 

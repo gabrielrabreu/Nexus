@@ -1,8 +1,8 @@
-﻿namespace Modularis.HealthModule.UseCases.Health.Check;
+﻿namespace Modularis.HealthModule.UseCases.Health;
 
-public class CheckHealthHandler(IEnumerable<IDependencyHealth> dependencyHealths) : IQueryHandler<CheckHealthQuery, Result<CheckHealthDto>>
+public class HealthHandler(IEnumerable<IDependencyHealth> dependencyHealths) : IQueryHandler<HealthQuery, Result<HealthDto>>
 {
-    public async Task<Result<CheckHealthDto>> Handle(CheckHealthQuery request, CancellationToken cancellationToken)
+    public async Task<Result<HealthDto>> Handle(HealthQuery request, CancellationToken cancellationToken)
     {
         var dependencyHealthTasks = dependencyHealths.Select(dependencyHealthImplementation => dependencyHealthImplementation.GetHealthAsync());
         var dependencyHealthStatusArray = await Task.WhenAll(dependencyHealthTasks);
@@ -10,6 +10,6 @@ public class CheckHealthHandler(IEnumerable<IDependencyHealth> dependencyHealths
 
         var overallStatus = dependencyHealthStatusList.TrueForAll(d => d.Status == HealthStatus.UP) ? HealthStatus.UP : HealthStatus.DOWN;
 
-        return new CheckHealthDto(overallStatus, dependencyHealthStatusList);
+        return new HealthDto(overallStatus, dependencyHealthStatusList);
     }
 }

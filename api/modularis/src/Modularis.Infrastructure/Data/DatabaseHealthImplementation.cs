@@ -1,14 +1,16 @@
-﻿using Modularis.HealthModule.UseCases.Health;
+﻿namespace Modularis.Infrastructure.Data;
 
-namespace Modularis.Infrastructure.Data;
-
-public class DatabaseHealthImplementation(AppDbContext db) : DependencyHealth
+public class DatabaseHealthImplementation(AppDbContext db) : IDependencyHealth
 {
-    protected override string Name => "Database";
-
-    protected override async Task<HealthStatus> GetStatusAsync()
+    public async Task<DependencyHealthDto> GetHealthAsync()
     {
+        var stopwatch = Stopwatch.StartNew();
         var canConnect = await db.Database.CanConnectAsync();
-        return canConnect ? HealthStatus.UP : HealthStatus.DOWN;
+        stopwatch.Stop();
+
+        var status = canConnect ? HealthStatus.UP : HealthStatus.DOWN;
+        var responseTime = stopwatch.Elapsed.ToString("c");
+        
+        return new DependencyHealthDto("Database", status, responseTime);
     }
 }

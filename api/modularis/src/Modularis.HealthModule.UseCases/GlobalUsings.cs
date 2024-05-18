@@ -1,2 +1,2 @@
-﻿global using Modularis.SharedKernel;
-global using System.Diagnostics;
+﻿global using Modularis.HealthModule.UseCases.DataTransferObjects;
+global using Modularis.SharedKernel;

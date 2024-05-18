@@ -8,3 +8,6 @@ global using Modularis.Infrastructure.Data;
 global using Modularis.SharedKernel;
 global using Modularis.SkuModule.Domain;
 global using System.Reflection;
+global using Modularis.HealthModule.UseCases.DataTransferObjects;
+global using Modularis.HealthModule.UseCases.Health;
+global using System.Diagnostics;

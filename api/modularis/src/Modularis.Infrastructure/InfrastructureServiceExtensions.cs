@@ -1,6 +1,4 @@
-﻿using Modularis.HealthModule.UseCases.Health;
-
-namespace Modularis.Infrastructure;
+﻿namespace Modularis.Infrastructure;
 
 public static class InfrastructureServiceExtensions
 {
