@@ -1,4 +1,6 @@
-﻿namespace Modularis.Infrastructure;
+﻿using Modularis.HealthModule.UseCases.Health;
+
+namespace Modularis.Infrastructure;
 
 public static class InfrastructureServiceExtensions
 {
@@ -9,6 +11,8 @@ public static class InfrastructureServiceExtensions
 
         services.AddScoped(typeof(IReadRepository<>), typeof(EfRepository<>));
         services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
+
+        services.AddTransient<IDependencyHealth, DatabaseHealthImplementation>();
 
         logger.LogInformation("{Project} services registered", "Infrastructure");
 
