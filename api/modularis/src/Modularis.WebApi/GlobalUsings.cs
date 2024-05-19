@@ -11,3 +11,4 @@ global using Serilog;
 global using Serilog.Extensions.Logging;
 global using System.Reflection;
 global using System.Text.Json.Serialization;
+global using System.ComponentModel.DataAnnotations;

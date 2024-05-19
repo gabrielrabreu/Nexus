@@ -1,6 +1,6 @@
 ﻿namespace Modularis.WebApi.Endpoints.Skus;
 
-public class CreateSkuRequest
+public class UpdateSkuRequest
 {
     [Required]
     public required string Code { get; set; }

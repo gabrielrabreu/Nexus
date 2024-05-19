@@ -1,4 +1,6 @@
-﻿namespace Modularis.Infrastructure.Data.Config;
+﻿using Modularis.SkuModule.Domain;
+
+namespace Modularis.Infrastructure.Data.Config;
 
 public class SkuConfiguration : IEntityTypeConfiguration<Sku>
 {

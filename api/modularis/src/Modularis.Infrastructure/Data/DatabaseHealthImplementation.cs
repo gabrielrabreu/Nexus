@@ -1,4 +1,7 @@
-﻿namespace Modularis.Infrastructure.Data;
+﻿using Modularis.HealthModule.UseCases.DataTransferObjects;
+using Modularis.HealthModule.UseCases.Health;
+
+namespace Modularis.Infrastructure.Data;
 
 public class DatabaseHealthImplementation(AppDbContext db) : IDependencyHealth
 {
