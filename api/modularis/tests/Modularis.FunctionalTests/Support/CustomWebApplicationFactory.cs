@@ -1,4 +1,7 @@
-﻿namespace Modularis.FunctionalTests.Support;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.Text.Json.Serialization;
+
+namespace Modularis.FunctionalTests.Support;
 
 public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 {
@@ -17,6 +20,28 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
         builder
             .ConfigureServices(services =>
             {
+                services.ConfigureHttpJsonOptions(options =>
+                {
+                    var converterToRemove = options.SerializerOptions.Converters
+                        .OfType<JsonStringEnumConverter>()
+                        .FirstOrDefault();
+                    if (converterToRemove != null)
+                    {
+                        options.SerializerOptions.Converters.Remove(converterToRemove);
+                    }
+                });
+
+                services.Configure<JsonOptions>(options =>
+                {
+                    var converterToRemove = options.JsonSerializerOptions.Converters
+                        .OfType<JsonStringEnumConverter>()
+                        .FirstOrDefault();
+                    if (converterToRemove != null)
+                    {
+                        options.JsonSerializerOptions.Converters.Remove(converterToRemove);
+                    }
+                });
+
                 services
                     .RemoveAll<DbContextOptions<AppDbContext>>()
                     .AddDbContext<AppDbContext>((sp, options) =>

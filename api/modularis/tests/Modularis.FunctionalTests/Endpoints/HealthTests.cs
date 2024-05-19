@@ -1,5 +1,4 @@
-﻿using Modularis.FunctionalTests.Support;
-using Modularis.HealthModule.UseCases.DataTransferObjects;
+﻿using Modularis.HealthModule.UseCases.DataTransferObjects;
 using Modularis.WebApi.Endpoints;
 
 namespace Modularis.FunctionalTests.Endpoints;
