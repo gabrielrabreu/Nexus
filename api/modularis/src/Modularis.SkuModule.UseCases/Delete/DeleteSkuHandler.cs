@@ -4,7 +4,7 @@ public class DeleteSkuHandler(IRepository<Sku> repository) : ICommandHandler<Del
 {
     public async Task<Result> Handle(DeleteSkuCommand request, CancellationToken cancellationToken)
     {
-        var sku = await repository.GetByIdAsync(request.SkuId, cancellationToken);
+        var sku = await repository.GetByIdAsync(request.Id, cancellationToken);
 
         if (sku == null)
             return Result.NotFound();

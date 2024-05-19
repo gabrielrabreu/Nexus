@@ -1,3 +1,3 @@
 ﻿namespace Modularis.SkuModule.UseCases.Get;
 
-public record GetSkuQuery(Guid SkuId) : IQuery<Result<SkuBriefDto>>;
+public record GetSkuQuery(Guid Id) : IQuery<Result<SkuBriefDto>>;

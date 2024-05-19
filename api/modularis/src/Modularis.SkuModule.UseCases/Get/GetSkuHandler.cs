@@ -4,7 +4,7 @@ public class GetSkuHandler(IReadRepository<Sku> repository) : IQueryHandler<GetS
 {
     public async Task<Result<SkuBriefDto>> Handle(GetSkuQuery request, CancellationToken cancellationToken)
     {
-        var sku = await repository.GetByIdAsync(request.SkuId, cancellationToken);
+        var sku = await repository.GetByIdAsync(request.Id, cancellationToken);
 
         if (sku == null)
             return Result.NotFound();
