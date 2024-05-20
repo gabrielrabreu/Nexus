@@ -28,11 +28,6 @@ jobs:
         run: |
           IMAGE_NAME=${{ secrets.DOCKER_USERNAME }}/${{ secrets.MODULARIS_IMAGE_NAME }}
           COMMIT_SHA=${{ github.sha }}
-          docker build -t $IMAGE_NAME:latest -t $IMAGE_NAME:$COMMIT_SHA \
-            --build-arg ConnectionStrings__SqlServer="${{ secrets.MODULARIS_SQL_SERVER_CONNECTION_STRING }}" \
-            --build-arg Datadog__ApiKey="${{ secrets.MODULARIS_DATADOG_API_KEY }}" \
-            --build-arg Datadog__Service="${{ secrets.MODULARIS_DATADOG_SERVICE }}" \
-            --build-arg Datadog__Host="${{ secrets.DATADOG_HOST }}" \
-            --build-arg Datadog__Url="${{ secrets.DATADOG_URL }}" .
+          docker build -t $IMAGE_NAME:latest -t $IMAGE_NAME:$COMMIT_SHA .
           docker push $IMAGE_NAME:latest
           docker push $IMAGE_NAME:$COMMIT_SHA
