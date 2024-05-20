@@ -5,6 +5,7 @@ on:
     paths: ./api/modularis
     branches: ["develop", "main"]
   pull_request:
+    paths: ./api/modularis
     types: [opened, synchronize, reopened]
   workflow_dispatch:
     

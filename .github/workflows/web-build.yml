@@ -5,6 +5,7 @@ on:
     paths: ./web
     branches: ["develop", "main"]
   pull_request:
+    paths: ./web
     types: [opened, synchronize, reopened]
   workflow_dispatch:
 
