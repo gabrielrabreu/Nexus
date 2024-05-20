@@ -17,4 +17,9 @@ Cypress.Commands.add("login", () => {
   cy.getByTestId("Login_email_input").type("mail@mail");
   cy.getByTestId("Login_password_input").type("Pass!123");
   cy.getByTestId("Login_submit_button").click();
+
+  cy.getByTestId("Login_title").should("be.visible");
+  cy.url().should("include", PATH.LOGIN);
+
+  cy.getByTestId("Home_title").should("be.visible");
 });
