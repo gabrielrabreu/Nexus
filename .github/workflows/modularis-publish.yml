@@ -16,11 +16,8 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
-
       - name: Login to Docker Hub
         uses: docker/login-action@v1
         with:
@@ -31,11 +28,6 @@ jobs:
         run: |
           IMAGE_NAME=${{ secrets.DOCKER_USERNAME }}/${{ secrets.MODULARIS_IMAGE_NAME }}
           COMMIT_SHA=${{ github.sha }}
-          docker buildx build --platform linux/amd64,linux/arm64 -t $IMAGE_NAME:latest -t $IMAGE_NAME:$COMMIT_SHA \
-            --build-arg ConnectionStrings__SqlServer="${{ secrets.MODULARIS_SQL_SERVER_CONNECTION_STRING }}" \
-            --build-arg Datadog__ApiKey="${{ secrets.MODULARIS_DATADOG_API_KEY }}" \
-            --build-arg Datadog__Service="${{ secrets.MODULARIS_DATADOG_SERVICE }}" \
-            --build-arg Datadog__Host="${{ secrets.DATADOG_HOST }}" \
-            --build-arg Datadog__Url="${{ secrets.DATADOG_URL }}" .
+          docker build -t $IMAGE_NAME:latest -t $IMAGE_NAME:$COMMIT_SHA .
           docker push $IMAGE_NAME:latest
           docker push $IMAGE_NAME:$COMMIT_SHA
