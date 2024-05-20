@@ -29,10 +29,13 @@ jobs:
       
       - name: Build and push Docker image
         run: |
-          docker buildx build --platform linux/amd64,linux/arm64 -t ${{ secrets.DOCKER_USERNAME }}/${{ secrets.MODULARIS_IMAGE_NAME }}:latest \
+          IMAGE_NAME=${{ secrets.DOCKER_USERNAME }}/${{ secrets.MODULARIS_IMAGE_NAME }}
+          COMMIT_SHA=${{ github.sha }}
+          docker buildx build --platform linux/amd64,linux/arm64 -t $IMAGE_NAME:latest -t $IMAGE_NAME:$COMMIT_SHA \
             --build-arg ConnectionStrings__SqlServer="${{ secrets.MODULARIS_SQL_SERVER_CONNECTION_STRING }}" \
             --build-arg Datadog__ApiKey="${{ secrets.MODULARIS_DATADOG_API_KEY }}" \
             --build-arg Datadog__Service="${{ secrets.MODULARIS_DATADOG_SERVICE }}" \
             --build-arg Datadog__Host="${{ secrets.DATADOG_HOST }}" \
             --build-arg Datadog__Url="${{ secrets.DATADOG_URL }}" .
-          docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.MODULARIS_IMAGE_NAME }}:latest
+          docker push $IMAGE_NAME:latest
+          docker push $IMAGE_NAME:$COMMIT_SHA
