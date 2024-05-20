@@ -10,9 +10,10 @@ public class DeleteSkuTests(CustomWebApplicationFactory factory, ITestOutputHelp
     [Fact]
     public async Task ReturnsNoContentGivenExistingSku()
     {
-        var existingQuiz = await _client.EnsureExistingSku();
+        var existingSku = await _client.EnsureExistingSku(_output);
 
-        var route = DeleteSku.BuildRoute(existingQuiz.Id);
+        var route = DeleteSku.BuildRoute(existingSku.Id);
+
         var response = await _client.ExecuteDeleteAsync(route, _output);
         response.Should().NotBeNull().And.Subject.EnsureNoContent();
     }
@@ -21,6 +22,7 @@ public class DeleteSkuTests(CustomWebApplicationFactory factory, ITestOutputHelp
     public async Task ReturnsNotFoundGivenNonExistingSku()
     {
         var route = DeleteSku.BuildRoute(Guid.NewGuid());
+
         var response = await _client.ExecuteDeleteAsync(route, _output);
         response.Should().NotBeNull().And.Subject.EnsureNotFound();
     }

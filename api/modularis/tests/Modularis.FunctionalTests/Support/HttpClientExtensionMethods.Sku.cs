@@ -10,7 +10,7 @@ public static partial class HttpClientExtensionMethods
         var route = CreateSku.BuildRoute();
         var request = new CreateSkuRequest
         {
-            Code = "Sample Code",
+            Code = Guid.NewGuid().ToString(),
             Name = "Sample Name",
             Price = 12m,
             Stock = 200

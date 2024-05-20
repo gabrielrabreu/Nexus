@@ -7,7 +7,9 @@ public class ListSkus : EndpointBase
 {
     public const string Route = "/Skus";
 
-    public static string BuildRoute() => Route;
+    public static string BuildRoute(int pageNumber, int pageSize)
+            => $"{Route}?{nameof(ListSkusRequest.PageNumber)}={pageNumber}" +
+                      $"&{nameof(ListSkusRequest.PageSize)}={pageSize}";
 
     public override void Configure(WebApplication app)
     {
