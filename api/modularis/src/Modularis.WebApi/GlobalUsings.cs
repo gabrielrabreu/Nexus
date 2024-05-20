@@ -9,6 +9,7 @@ global using Modularis.SharedKernel;
 global using Modularis.WebApi.Endpoints;
 global using Serilog;
 global using Serilog.Extensions.Logging;
+global using Serilog.Sinks.Datadog.Logs;
+global using System.ComponentModel.DataAnnotations;
 global using System.Reflection;
 global using System.Text.Json.Serialization;
-global using System.ComponentModel.DataAnnotations;

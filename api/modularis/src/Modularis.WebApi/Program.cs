@@ -1,18 +1,25 @@
 using Modularis.HealthModule.UseCases.Health;
 using Modularis.SkuModule.UseCases.Create;
 
+var builder = WebApplication.CreateBuilder(args);
+
 var logger = Log.Logger = new LoggerConfiguration()
   .Enrich.FromLogContext()
   .WriteTo.Console()
+  .WriteTo.DatadogLogs(
+        builder.Configuration["Datadog:ApiKey"],
+        source: "csharp",
+        service: builder.Configuration["Datadog:Service"],
+        host: builder.Configuration["Datadog:Host"],
+        configuration: new DatadogConfiguration() { Url = builder.Configuration["Datadog:Url"] }
+    )
   .CreateLogger();
 
-logger.Information("Starting web host");
-
-var builder = WebApplication.CreateBuilder(args);
-
-builder.Host.UseSerilog((_, config) => config.ReadFrom.Configuration(builder.Configuration));
+builder.Host.UseSerilog(logger);
 
 var microsoftLogger = new SerilogLoggerFactory(logger).CreateLogger<Program>();
+
+microsoftLogger.LogInformation("Starting web host");
 
 builder.Services.AddEndpointsApiExplorer();
 
