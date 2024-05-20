@@ -40,12 +40,12 @@ jobs:
 
       - name: Unit tests
         run: |
-          npm run cy:run-unit
+          npm run cy:unit
 
       - name: E2E tests
         run: |
           npm run dev &
-          npm run cy:run-e2e
+          npm run cy:e2e
 
       - name: Run SonarCloud analysis
         env:
