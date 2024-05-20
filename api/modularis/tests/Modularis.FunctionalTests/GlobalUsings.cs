@@ -1,0 +1,13 @@
+﻿global using FluentAssertions;
+global using Microsoft.AspNetCore.Hosting;
+global using Microsoft.AspNetCore.Mvc.Testing;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.Extensions.DependencyInjection.Extensions;
+global using Microsoft.Extensions.Hosting;
+global using Modularis.FunctionalTests.Support;
+global using Modularis.Infrastructure.Data;
+global using System.Net;
+global using System.Text;
+global using System.Text.Json;
+global using Xunit.Abstractions;
