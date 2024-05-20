@@ -15,4 +15,10 @@ COPY --from=build /app/publish .
 
 EXPOSE 8080
 
+ENV ConnectionStrings__SqlServer=$ConnectionStrings__SqlServer
+ENV Datadog__ApiKey=$Datadog__ApiKey
+ENV Datadog__Service=$Datadog__Service
+ENV Datadog__Host=$Datadog__Host
+ENV Datadog__Url=$Datadog__Url
+
 ENTRYPOINT ["dotnet", "Modularis.WebApi.dll"]
