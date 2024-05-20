@@ -7,8 +7,6 @@ describe("Home", () => {
     });
 
     it("renders home route correctly", () => {
-      cy.visit(PATH.HOME);
-
       cy.getByTestId("Home_title").should("be.visible");
       cy.url().should("include", PATH.HOME);
     });
