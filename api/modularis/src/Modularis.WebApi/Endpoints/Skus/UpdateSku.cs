@@ -1,4 +1,5 @@
-﻿using Modularis.SkuModule.UseCases.Update;
+﻿using Modularis.SkuModule.UseCases.DataTransferObjects;
+using Modularis.SkuModule.UseCases.Update;
 
 namespace Modularis.WebApi.Endpoints.Skus;
 
@@ -17,7 +18,7 @@ public class UpdateSku : EndpointBase
             .WithSummary("Updates Skus by its ID");
     }
 
-    private async Task<Results<NoContent, NotFound>> HandleAsync(
+    private async Task<Results<Ok<SkuBriefDto>, NotFound>> HandleAsync(
         [FromBody] UpdateSkuRequest request,
         Guid skuId,
         IMediator mediator,
@@ -30,6 +31,6 @@ public class UpdateSku : EndpointBase
         if (result.Status == ResultStatus.NotFound)
             return TypedResults.NotFound();
 
-        return TypedResults.NoContent();
+        return TypedResults.Ok(result.Value);
     }
 }

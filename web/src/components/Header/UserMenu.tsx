@@ -1,11 +1,12 @@
 import { useRef } from "react";
 import { ConnectedProps, connect } from "react-redux";
-import { XIcon } from "lucide-react";
+import { PackageSearchIcon, XIcon } from "lucide-react";
 
 import { logout } from "@/components/Auth/Auth.reducers";
 import { RootState } from "@/store/store";
-
-import useOutsideClick from "./useOutsideClick";
+import useOutsideClick from "@/hooks/useOutsideClick";
+import { PATH } from "@/constants/paths";
+import { NavLink } from "react-router-dom";
 
 const mapStateToProps = (state: RootState) => ({
   user: state.authReducer.user,
@@ -88,6 +89,14 @@ const _UserMenu: React.FC<Props> = ({ isVisible, onClose, user, logout }) => {
                   text-black
                   dark:text-white"
               >
+                <NavLink
+                  to={PATH.LIST_SKUS}
+                  className="flex items-center px-2 py-2 my-2 rounded-md w-full"
+                  onClick={onClose}
+                >
+                  <PackageSearchIcon className="text-dark-surface-500 mr-2" />
+                  SKUs
+                </NavLink>
                 <button
                   className="flex items-center px-2 py-2 my-2 rounded-md w-full"
                   type="button"

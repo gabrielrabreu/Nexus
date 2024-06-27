@@ -45,6 +45,17 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins",
+        builder =>
+        {
+            builder.AllowAnyOrigin()
+                   .AllowAnyMethod()
+                   .AllowAnyHeader();
+        });
+});
+
 ConfigureMediatR(builder.Services);
 
 builder.Services.AddInfrastructureServices(microsoftLogger);
@@ -55,6 +66,7 @@ ConfigureEndpoints(app);
 
 app.UseSwagger();
 app.UseSwaggerUI();
+app.UseCors("AllowAllOrigins");
 
 SeedDatabase(app);
 

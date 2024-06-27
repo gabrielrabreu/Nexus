@@ -44,7 +44,7 @@ const _Header: React.FC<Props> = ({ user, setDarkModePrefer }) => {
             <div className="flex relative items-center ml-2">
               <button
                 className="
-                  flex items-center justify-center w-12 h-12 rounded-full
+                  flex items-center justify-center w-12 h-12 rounded-full pointer-events-none
                   border-stone-200 border 
                   dark:border-dark-mixed-300"
               >

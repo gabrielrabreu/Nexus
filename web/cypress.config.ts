@@ -3,7 +3,7 @@ import { defineConfig } from "cypress";
 
 export default defineConfig({
   env: {
-    apiUrl: "http://localhost:3001/api",
+    apiUrl: "http://localhost:5272",
   },
   component: {
     devServer: {

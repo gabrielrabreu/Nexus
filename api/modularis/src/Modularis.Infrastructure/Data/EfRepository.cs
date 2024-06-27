@@ -21,10 +21,11 @@ public class EfRepository<T>(AppDbContext db) : IRepository<T> where T : class, 
         return entity;
     }
 
-    public virtual async Task UpdateAsync(T entity, CancellationToken cancellationToken = default)
+    public virtual async Task<T> UpdateAsync(T entity, CancellationToken cancellationToken = default)
     {
         Db.Set<T>().Update(entity);
         await SaveChangesAsync(cancellationToken);
+        return entity;
     }
 
     public virtual async Task DeleteAsync(T entity, CancellationToken cancellationToken = default)

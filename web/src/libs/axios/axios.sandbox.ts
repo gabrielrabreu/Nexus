@@ -12,6 +12,22 @@ const setupAxiosSandbox = (axios: AxiosInstance) => {
     accessToken: "5efb5f8a-212b-4b22-a201-ba2958005342",
     darkMode: true,
   });
+  
+  mock.onPost("/sku").reply(200, {
+    id: 999,
+    code: "13213",
+    name: "nnn",
+    price: 2,
+    stock: 1
+  });
+  
+  mock.onPut("/sku/12313").reply(200, {
+    id: "12313",
+    code: "12jk",
+    name: "nameejk",
+    price: 1233.5,
+    stock: 1210,
+  });
 };
 
 export default setupAxiosSandbox;
