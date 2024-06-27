@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { toast } from "react-toastify";
 
 import { Button } from "@/components/Button/Button";
 import { Grid } from "@/components/Grid/Grid";

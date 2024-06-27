@@ -19,6 +19,11 @@ describe("Login", () => {
           user: undefined,
           error: undefined,
         },
+        skusReducer: {
+          loading: false,
+          skus: [],
+          error: undefined,
+        },
       };
 
       renderWithProvider(
@@ -41,6 +46,11 @@ describe("Login", () => {
           loading: false,
           isAuthenticated: false,
           user: undefined,
+          error: undefined,
+        },
+        skusReducer: {
+          loading: false,
+          skus: [],
           error: undefined,
         },
       };
@@ -82,6 +92,11 @@ describe("Login", () => {
           loading: false,
           isAuthenticated: false,
           user: undefined,
+          error: undefined,
+        },
+        skusReducer: {
+          loading: false,
+          skus: [],
           error: undefined,
         },
       };

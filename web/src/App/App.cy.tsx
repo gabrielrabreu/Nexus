@@ -11,6 +11,11 @@ describe("App", () => {
         user: undefined,
         error: undefined,
       },
+      skusReducer: {
+        loading: false,
+        skus: [],
+        error: undefined,
+      },
     };
 
     renderWithProvider(<App />, initialState);
@@ -24,6 +29,11 @@ describe("App", () => {
         loading: false,
         isAuthenticated: false,
         user: undefined,
+        error: undefined,
+      },
+      skusReducer: {
+        loading: false,
+        skus: [],
         error: undefined,
       },
     };
