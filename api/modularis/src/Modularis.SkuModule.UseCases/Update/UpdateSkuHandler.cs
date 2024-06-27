@@ -1,8 +1,8 @@
 ﻿namespace Modularis.SkuModule.UseCases.Update;
 
-public class UpdateSkuHandler(IRepository<Sku> repository) : ICommandHandler<UpdateSkuCommand, Result>
+public class UpdateSkuHandler(IRepository<Sku> repository) : ICommandHandler<UpdateSkuCommand, Result<SkuBriefDto>>
 {
-    public async Task<Result> Handle(UpdateSkuCommand request, CancellationToken cancellationToken)
+    public async Task<Result<SkuBriefDto>> Handle(UpdateSkuCommand request, CancellationToken cancellationToken)
     {
         var sku = await repository.GetByIdAsync(request.Id, cancellationToken);
 
@@ -16,6 +16,6 @@ public class UpdateSkuHandler(IRepository<Sku> repository) : ICommandHandler<Upd
 
         await repository.UpdateAsync(sku, cancellationToken);
 
-        return Result.Success();
+        return new SkuBriefDto(sku.Id, sku.Code, sku.Name, sku.Price, sku.Stock);
     }
 }

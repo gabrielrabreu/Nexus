@@ -1,0 +1,16 @@
+# dependencies
+/node_modules
+
+# testing
+.nyc_output
+/coverage
+/cypress/videos
+/cypress/screenshots
+
+# production
+/build
+/dist
+
+# misc
+.idea
+.vscode

@@ -1,9 +1,11 @@
 name: Modularis Build
+
 on:
   push:
     paths: ./api/modularis
-    branches: [ "develop", "main" ]
+    branches: ["develop", "main"]
   pull_request:
+    paths: ./api/modularis
     types: [opened, synchronize, reopened]
   workflow_dispatch:
     
@@ -12,7 +14,7 @@ permissions:
 
 jobs:
   build:
-    name: Build and analyze API
+    name: Build and analyze
     runs-on: ubuntu-latest
     
     defaults:
