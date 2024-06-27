@@ -1,6 +1,7 @@
 import { renderWithProvider } from "@/utils/test-utils";
 
 import { UserMenu } from "./UserMenu";
+import { MemoryRouter } from "react-router-dom";
 
 describe("UserMenu", () => {
   it("renders user menu when visible", () => {
@@ -27,7 +28,12 @@ describe("UserMenu", () => {
       },
     };
 
-    renderWithProvider(<UserMenu isVisible={true} onClose={() => {}} />, initialState);
+    renderWithProvider(
+      <MemoryRouter>
+        <UserMenu isVisible={true} onClose={() => {}} />
+      </MemoryRouter>,
+      initialState,
+    );
 
     cy.getByTestId("UserMenu").should("exist");
     cy.getByTestId("UserMenu_username_span").should("contain", "testuser");
@@ -91,7 +97,12 @@ describe("UserMenu", () => {
 
     const onClose = cy.stub().as("onClose");
 
-    renderWithProvider(<UserMenu isVisible={true} onClose={onClose} />, initialState);
+    renderWithProvider(
+      <MemoryRouter>
+        <UserMenu isVisible={true} onClose={onClose} />
+      </MemoryRouter>,
+      initialState,
+    );
 
     cy.getByTestId("UserMenu_close_button").click();
 
@@ -122,7 +133,12 @@ describe("UserMenu", () => {
       },
     };
 
-    const { store } = renderWithProvider(<UserMenu isVisible={true} onClose={() => {}} />, initialState);
+    const { store } = renderWithProvider(
+      <MemoryRouter>
+        <UserMenu isVisible={true} onClose={() => {}} />
+      </MemoryRouter>,
+      initialState,
+    );
 
     cy.getByTestId("UserMenu_logout_button")
       .click()
