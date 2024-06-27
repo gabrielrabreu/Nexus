@@ -1,4 +1,5 @@
-﻿using Modularis.WebApi.Endpoints.Skus;
+﻿using Modularis.SkuModule.UseCases.DataTransferObjects;
+using Modularis.WebApi.Endpoints.Skus;
 
 namespace Modularis.FunctionalTests.Endpoints.Skus;
 
@@ -8,7 +9,7 @@ public class UpdateSkuTests(CustomWebApplicationFactory factory, ITestOutputHelp
     private readonly ITestOutputHelper _output = output;
 
     [Fact]
-    public async Task ReturnsNoContentGivenExistingSku()
+    public async Task ReturnsOkGivenExistingSku()
     {
         var existingSku = await _client.EnsureExistingSku(_output);
 
@@ -22,7 +23,15 @@ public class UpdateSkuTests(CustomWebApplicationFactory factory, ITestOutputHelp
         };
 
         var response = await _client.ExecutePutAsync(route, request, _output);
-        response.Should().NotBeNull().And.Subject.EnsureNoContent();
+        response.Should().NotBeNull().And.Subject.EnsureOK();
+
+        var result = await response.DeserializeAsync<SkuBriefDto>(_output);
+        result.Should().NotBeNull();
+        result.Id.Should().Be(existingSku.Id);
+        result.Code.Should().Be(request.Code);
+        result.Name.Should().Be(request.Name);
+        result.Price.Should().Be(request.Price);
+        result.Stock.Should().Be(request.Stock);
     }
 
     [Fact]

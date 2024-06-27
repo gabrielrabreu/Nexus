@@ -22,6 +22,11 @@ describe("Header", () => {
         user: user,
         error: undefined,
       },
+      skusReducer: {
+        loading: false,
+        skus: [],
+        error: undefined,
+      },
     };
 
     renderWithProvider(
@@ -55,6 +60,11 @@ describe("Header", () => {
         user: user,
         error: undefined,
       },
+      skusReducer: {
+        loading: false,
+        skus: [],
+        error: undefined,
+      },
     };
 
     renderWithProvider(
@@ -86,6 +96,11 @@ describe("Header", () => {
         loading: false,
         isAuthenticated: false,
         user: user,
+        error: undefined,
+      },
+      skusReducer: {
+        loading: false,
+        skus: [],
         error: undefined,
       },
     };

@@ -20,6 +20,11 @@ describe("UserMenu", () => {
         user: user,
         error: undefined,
       },
+      skusReducer: {
+        loading: false,
+        skus: [],
+        error: undefined,
+      },
     };
 
     renderWithProvider(<UserMenu isVisible={true} onClose={() => {}} />, initialState);
@@ -48,6 +53,11 @@ describe("UserMenu", () => {
         user: user,
         error: undefined,
       },
+      skusReducer: {
+        loading: false,
+        skus: [],
+        error: undefined,
+      },
     };
 
     renderWithProvider(<UserMenu isVisible={false} onClose={() => {}} />, initialState);
@@ -70,6 +80,11 @@ describe("UserMenu", () => {
         loading: false,
         isAuthenticated: true,
         user: user,
+        error: undefined,
+      },
+      skusReducer: {
+        loading: false,
+        skus: [],
         error: undefined,
       },
     };
@@ -98,6 +113,11 @@ describe("UserMenu", () => {
         loading: false,
         isAuthenticated: true,
         user: user,
+        error: undefined,
+      },
+      skusReducer: {
+        loading: false,
+        skus: [],
         error: undefined,
       },
     };
