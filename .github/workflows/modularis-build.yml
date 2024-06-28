@@ -14,7 +14,7 @@ permissions:
 
 jobs:
   build:
-    name: Build and analyze
+    name: Modularis Build and Analyze
     runs-on: ubuntu-latest
     
     defaults:
