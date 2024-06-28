@@ -2,8 +2,14 @@ name: Modularis Publish
 
 on:
   push:
-    paths: ./api/modularis
-    branches: [ "main" ]
+    paths:
+      - './api/modularis/**'
+    branches:
+      - 'main'
+  pull_request:
+    paths:
+      - './api/modularis/**'
+    types: [opened, synchronize, reopened]
   workflow_dispatch:
 
 jobs:
