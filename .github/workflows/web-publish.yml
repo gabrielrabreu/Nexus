@@ -2,8 +2,10 @@ name: Web Publish
 
 on:
   push:
-    paths: ./web
-    branches: [ "main" ]
+    paths:
+      - './web/**'
+    branches:
+      - 'main'
   workflow_dispatch:
 
 jobs:
