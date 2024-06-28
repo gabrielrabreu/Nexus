@@ -11,15 +11,8 @@ interface State {
 
 const initialState: State = {
   loading: false,
-  isAuthenticated: true,
-  user: {
-    id: "1",
-    username: "John Doe",
-    email: "johndoe@gmail.com",
-    avatarUrl: "https://i.pinimg.com/originals/dc/28/a7/dc28a77f18bfc9aaa51c3f61080edda5.jpg",
-    accessToken: "5efb5f8a-212b-4b22-a201-ba2958005342",
-    darkMode: false,
-  },
+  isAuthenticated: false,
+  user: undefined,
   error: undefined,
 };
 
