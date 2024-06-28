@@ -8,6 +8,7 @@ on:
 
 jobs:
   build-and-publish:
+    name: Modularis Publish
     runs-on: ubuntu-latest
     
     defaults:
