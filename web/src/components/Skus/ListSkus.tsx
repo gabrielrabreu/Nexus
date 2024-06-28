@@ -78,9 +78,9 @@ const _ListSkus: React.FC<Props> = ({ skus, loading, add, update, fetchAll }) =>
           <div className="flex flex-col mt-6">
             <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
               <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-                <div className="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
-                  <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                    <thead className="bg-gray-50 dark:bg-gray-800">
+                <div className="overflow-hidden border border-gray-200 dark:border-dark-mixed-300 md:rounded-lg">
+                  <table className="min-w-full divide-y divide-gray-200 dark:divide-dark-mixed-300">
+                    <thead className="bg-gray-50 dark:bg-dark-mixed-200">
                       <tr>
                         <th
                           scope="col"
@@ -117,7 +117,7 @@ const _ListSkus: React.FC<Props> = ({ skus, loading, add, update, fetchAll }) =>
                         </th>
                       </tr>
                     </thead>
-                    <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
+                    <tbody className="bg-white divide-y divide-gray-200 dark:divide-dark-mixed-300 dark:bg-dark-mixed-100">
                       {skus.map((sku) => (
                         <tr key={sku.id}>
                           <td className="px-4 py-4 text-sm whitespace-nowrap">{sku.id}</td>
