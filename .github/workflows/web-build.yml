@@ -2,10 +2,13 @@ name: Web Build
 
 on:
   push:
-    paths: ./web
-    branches: ["develop", "main"]
+    paths:
+      - './web/**'
+    branches:
+      - 'main'
   pull_request:
-    paths: ./web
+    paths:
+      - './web/**'
     types: [opened, synchronize, reopened]
   workflow_dispatch:
 
