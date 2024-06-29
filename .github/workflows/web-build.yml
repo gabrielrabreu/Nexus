@@ -52,7 +52,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
           SONAR_PROJECT_KEY: "abreu-dev_Nexus_Web"
-          SONAR_PROJECT_NAME: "abreu-dev_Nexus_Web"
           SONAR_ORGANIZATION: "abreu-dev"
           SONAR_HOST_URL: "https://sonarcloud.io"
           SONAR_TOKEN: "${{ secrets.SONAR_TOKEN_WEB }}"
