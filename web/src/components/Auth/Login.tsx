@@ -97,7 +97,7 @@ const _Login: React.FC<Props> = ({ isAuthenticated, login }) => {
           <div>
             <button
               type="submit"
-              className="w-full flex justify-center p-4 rounded-full tracking-wide font-semibold cursor-pointer text-white bg-gradient-to-r from-dark-primary-700 to-dark-primary-600"
+              className="w-full flex justify-center p-4 rounded-full tracking-wide font-semibold cursor-pointer text-white bg-dark-primary-600 transition-all duration-300 hover:bg-dark-primary-800"
               data-testid="Login_submit_button"
             >
               Sign in

@@ -51,7 +51,7 @@ const _UserMenu: React.FC<Props> = ({ isVisible, onClose, user, logout }) => {
                   </div>
                 </div>
                 <button
-                  className="text-dark-surface-500"
+                  className="text-dark-surface-500 p-2 rounded-md hover:bg-gray-200 transition-all duration-300"
                   type="button"
                   onClick={onClose}
                   data-testid="UserMenu_close_button"
@@ -62,7 +62,7 @@ const _UserMenu: React.FC<Props> = ({ isVisible, onClose, user, logout }) => {
               </div>
               <div className="mt-4 px-8 h-full overflow-auto text-sm text-black">
                 <button
-                  className="flex items-center px-2 py-2 my-2 rounded-md w-full"
+                  className="flex items-center p-2 my-2 rounded-md w-full hover:bg-gray-200 transition-all duration-300"
                   type="button"
                   onClick={() => logout()}
                   data-testid="UserMenu_logout_button"
