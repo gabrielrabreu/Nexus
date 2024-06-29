@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 const _Loading = () => {
   return (
     <div className="h-screen flex items-center justify-center w-full" data-testid="Loading">
@@ -23,6 +25,4 @@ const _Loading = () => {
   );
 };
 
-const Loading = _Loading;
-
-export { Loading };
+export const Loading = memo(_Loading);

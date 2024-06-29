@@ -29,6 +29,4 @@ const _MainLayout: React.FC<Props> = ({ isAuthenticated }) => {
   );
 };
 
-const MainLayout = connector(_MainLayout);
-
-export default MainLayout;
+export const MainLayout = connector(_MainLayout);

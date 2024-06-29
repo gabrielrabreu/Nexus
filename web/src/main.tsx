@@ -3,10 +3,9 @@ import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { ToastContainer } from "react-toastify";
 
-import App from "./App/App.tsx";
-import setupAxiosSandbox from "./libs/axios/axios.sandbox.ts";
-import httpClient from "./libs/axios/axios.config.ts";
-import datadogLogs from "./libs/datadog/datadog.config.ts";
+import { App } from "./App/App.tsx";
+import { setupAxiosSandbox } from "./libs/axios/axios.sandbox.ts";
+import { httpClient } from "./libs/axios/axios.config.ts";
 import { store } from "./store/store.ts";
 
 import "./index.css";
@@ -25,5 +24,3 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     </Provider>
   </React.StrictMode>,
 );
-
-datadogLogs.logger.info("Application started");

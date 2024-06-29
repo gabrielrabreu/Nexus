@@ -1,6 +1,6 @@
 import { renderWithProvider } from "@/utils/test-utils";
 
-import App from "./App";
+import { App } from "./App";
 
 describe("App", () => {
   it("renders Loading component when loading is true", () => {
@@ -9,11 +9,6 @@ describe("App", () => {
         loading: true,
         isAuthenticated: false,
         user: undefined,
-        error: undefined,
-      },
-      skusReducer: {
-        loading: false,
-        skus: [],
         error: undefined,
       },
     };
@@ -29,11 +24,6 @@ describe("App", () => {
         loading: false,
         isAuthenticated: false,
         user: undefined,
-        error: undefined,
-      },
-      skusReducer: {
-        loading: false,
-        skus: [],
         error: undefined,
       },
     };

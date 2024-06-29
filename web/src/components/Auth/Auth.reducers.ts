@@ -42,16 +42,10 @@ export const authSlice = createSlice({
         state.isAuthenticated = true;
         state.user = user;
       }
-    },
-    setDarkModePrefer: (state, action: PayloadAction<boolean>) => {
-      if (state.user) {
-        state.user.darkMode = action.payload;
-        localStorage.setItem("user", JSON.stringify(state.user));
-      }
-    },
+    }
   },
 });
 
-export const { logout, loadFromStorage, setDarkModePrefer } = authSlice.actions;
+export const { logout, loadFromStorage } = authSlice.actions;
 
 export default authSlice.reducer;

@@ -1,12 +1,10 @@
 import { useRef } from "react";
 import { ConnectedProps, connect } from "react-redux";
-import { PackageSearchIcon, XIcon } from "lucide-react";
+import { XIcon } from "lucide-react";
 
 import { logout } from "@/components/Auth/Auth.reducers";
+import { useOutsideClick } from "@/hooks/useOutsideClick";
 import { RootState } from "@/store/store";
-import useOutsideClick from "@/hooks/useOutsideClick";
-import { PATH } from "@/constants/paths";
-import { NavLink } from "react-router-dom";
 
 const mapStateToProps = (state: RootState) => ({
   user: state.authReducer.user,
@@ -35,40 +33,19 @@ const _UserMenu: React.FC<Props> = ({ isVisible, onClose, user, logout }) => {
       <div className="fixed inset-0 z-50 overflow-hidden" data-testid="UserMenu">
         <section className="absolute inset-y-0 right-0 pl-10 max-w-full flex ">
           <div className="w-screen max-w-sm z-50" ref={ref}>
-            <div
-              className="
-                h-full flex flex-col py-6 border-l rounded-l-xl
-                bg-white
-                dark:bg-dark-mixed-200  dark:border-dark-mixed-300"
-            >
+            <div className="h-full flex flex-col py-6 border-l rounded-l-xl bg-white">
               <div className="flex items-center justify-between px-8">
                 <div className="flex items-center mr-5">
                   <div className="mr-5">
-                    <div
-                      className="
-                        flex items-center justify-center w-12 h-12 rounded-full 
-                        border-stone-200 border 
-                        dark:border-dark-mixed-300"
-                    >
+                    <div className="flex items-center justify-center w-12 h-12 rounded-full border-stone-200 border">
                       <img src={user?.avatarUrl} alt="User Avatar" className="w-full h-full rounded-full" />
                     </div>
                   </div>
-                  <div className="mr-2 ">
-                    <span
-                      className="
-                        text-md font-medium 
-                        text-black
-                        dark:text-white"
-                      data-testid="UserMenu_username_span"
-                    >
+                  <div className="mr-2">
+                    <span className="text-md font-medium text-black" data-testid="UserMenu_username_span">
                       {user?.username}
                     </span>
-                    <span
-                      className="
-                        font-medium block text-sm 
-                        text-dark-surface-500"
-                      data-testid="UserMenu_email_span"
-                    >
+                    <span className="font-medium block text-sm text-dark-surface-500" data-testid="UserMenu_email_span">
                       {user?.email}
                     </span>
                   </div>
@@ -83,20 +60,7 @@ const _UserMenu: React.FC<Props> = ({ isVisible, onClose, user, logout }) => {
                   <XIcon />
                 </button>
               </div>
-              <div
-                className="
-                  mt-4 px-8 h-full overflow-auto text-sm
-                  text-black
-                  dark:text-white"
-              >
-                <NavLink
-                  to={PATH.LIST_SKUS}
-                  className="flex items-center px-2 py-2 my-2 rounded-md w-full"
-                  onClick={onClose}
-                >
-                  <PackageSearchIcon className="text-dark-surface-500 mr-2" />
-                  SKUs
-                </NavLink>
+              <div className="mt-4 px-8 h-full overflow-auto text-sm text-black">
                 <button
                   className="flex items-center px-2 py-2 my-2 rounded-md w-full"
                   type="button"
@@ -114,6 +78,4 @@ const _UserMenu: React.FC<Props> = ({ isVisible, onClose, user, logout }) => {
   );
 };
 
-const UserMenu = connector(_UserMenu);
-
-export { UserMenu };
+export const UserMenu = connector(_UserMenu);

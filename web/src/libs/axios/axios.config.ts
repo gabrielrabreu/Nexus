@@ -37,7 +37,7 @@ const setupInterceptorsTo = (httpClient: AxiosInstance): AxiosInstance => {
   return httpClient;
 };
 
-const httpClient = axios.create({
+export const httpClient = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
   timeout: 10000,
   headers: {
@@ -46,5 +46,3 @@ const httpClient = axios.create({
 });
 
 setupInterceptorsTo(httpClient);
-
-export default httpClient;
