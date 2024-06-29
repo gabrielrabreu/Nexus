@@ -62,7 +62,6 @@ jobs:
             -Dsonar.organization=$SONAR_ORGANIZATION \
             -Dsonar.host.url=$SONAR_HOST_URL \
             -Dsonar.token=$SONAR_TOKEN \
-            -Dsonar.projectName=$SONAR_PROJECT_NAME \
             -Dsonar.coverage.exclusions="cypress/**/*.*, **/*.d.ts, **/*.cy.tsx, **/*.cy.ts, **/libs/**" \
             -Dsonar.exclusions="**/*.cy.*" \
             -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
