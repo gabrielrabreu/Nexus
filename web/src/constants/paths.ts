@@ -1,4 +1,5 @@
 export const PATH = {
   HOME: "/",
-  LOGIN: "/auth/login"
+  LOGIN: "/auth/login",
+  LIST_SKUS: "/skus"
 };
