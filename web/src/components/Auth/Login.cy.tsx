@@ -3,7 +3,7 @@ import MockAdapter from "axios-mock-adapter";
 import { expect } from "chai";
 
 import { renderWithProvider } from "@/utils/test-utils";
-import httpClient from "@/libs/axios/axios.config";
+import { httpClient } from "@/libs/axios/axios.config";
 
 import { Login } from "./Login";
 
@@ -17,11 +17,6 @@ describe("Login", () => {
           loading: false,
           isAuthenticated: false,
           user: undefined,
-          error: undefined,
-        },
-        skusReducer: {
-          loading: false,
-          skus: [],
           error: undefined,
         },
       };
@@ -46,11 +41,6 @@ describe("Login", () => {
           loading: false,
           isAuthenticated: false,
           user: undefined,
-          error: undefined,
-        },
-        skusReducer: {
-          loading: false,
-          skus: [],
           error: undefined,
         },
       };
@@ -92,11 +82,6 @@ describe("Login", () => {
           loading: false,
           isAuthenticated: false,
           user: undefined,
-          error: undefined,
-        },
-        skusReducer: {
-          loading: false,
-          skus: [],
           error: undefined,
         },
       };

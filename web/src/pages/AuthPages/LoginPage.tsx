@@ -1,8 +1,6 @@
-import React from "react";
+import React, { memo } from "react";
 
 import { Login } from "@/components/Auth/Login";
-
-import "./LoginPage.css";
 
 const _LoginPage: React.FC = () => {
   return (
@@ -23,18 +21,6 @@ const _LoginPage: React.FC = () => {
               from-dark-mixed-200 to-dark-mixed-500"
           ></div>
           <div className="w-full max-w-md z-10"></div>
-          <ul className="circles">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
         </div>
         <Login />
       </div>
@@ -42,6 +28,4 @@ const _LoginPage: React.FC = () => {
   );
 };
 
-const LoginPage = React.memo(_LoginPage);
-
-export default LoginPage;
+export const LoginPage = memo(_LoginPage);

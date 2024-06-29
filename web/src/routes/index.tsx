@@ -3,10 +3,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import { Loading } from "@/components/Loading/Loading";
 import { PATH } from "@/constants/paths";
-import MainLayout from "@/pages/layouts/MainLayout";
-import HomePage from "@/pages/HomePages/HomePage";
-import LoginPage from "@/pages/AuthPages/LoginPage";
-import ListSkusPage from "@/pages/SkuPages/ListSkusPage";
+import { MainLayout } from "@/pages/layouts/MainLayout";
+import { HomePage } from "@/pages/HomePages/HomePage";
+import { LoginPage } from "@/pages/AuthPages/LoginPage";
 
 export const Router = () => {
   return (
@@ -15,7 +14,6 @@ export const Router = () => {
         <Routes>
           <Route element={<MainLayout />}>
             <Route path={PATH.HOME} element={<HomePage />} />
-            <Route path={PATH.LIST_SKUS} element={<ListSkusPage />} />
           </Route>
           <Route path={PATH.LOGIN} element={<LoginPage />} />
         </Routes>

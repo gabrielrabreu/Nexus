@@ -11,7 +11,6 @@ describe("UserMenu", () => {
       email: "test@example.com",
       avatarUrl: "https://example.com/avatar.jpg",
       accessToken: "5efb5f8a-212b-4b22-a201-ba2958005342",
-      darkMode: true,
     };
 
     const initialState = {
@@ -19,11 +18,6 @@ describe("UserMenu", () => {
         loading: false,
         isAuthenticated: true,
         user: user,
-        error: undefined,
-      },
-      skusReducer: {
-        loading: false,
-        skus: [],
         error: undefined,
       },
     };
@@ -49,7 +43,6 @@ describe("UserMenu", () => {
       email: "test@example.com",
       avatarUrl: "https://example.com/avatar.jpg",
       accessToken: "5efb5f8a-212b-4b22-a201-ba2958005342",
-      darkMode: true,
     };
 
     const initialState = {
@@ -57,11 +50,6 @@ describe("UserMenu", () => {
         loading: false,
         isAuthenticated: true,
         user: user,
-        error: undefined,
-      },
-      skusReducer: {
-        loading: false,
-        skus: [],
         error: undefined,
       },
     };
@@ -78,7 +66,6 @@ describe("UserMenu", () => {
       email: "test@example.com",
       avatarUrl: "https://example.com/avatar.jpg",
       accessToken: "5efb5f8a-212b-4b22-a201-ba2958005342",
-      darkMode: true,
     };
 
     const initialState = {
@@ -86,11 +73,6 @@ describe("UserMenu", () => {
         loading: false,
         isAuthenticated: true,
         user: user,
-        error: undefined,
-      },
-      skusReducer: {
-        loading: false,
-        skus: [],
         error: undefined,
       },
     };
@@ -116,7 +98,6 @@ describe("UserMenu", () => {
       email: "test@example.com",
       avatarUrl: "https://example.com/avatar.jpg",
       accessToken: "5efb5f8a-212b-4b22-a201-ba2958005342",
-      darkMode: true,
     };
 
     const initialState = {
@@ -124,11 +105,6 @@ describe("UserMenu", () => {
         loading: false,
         isAuthenticated: true,
         user: user,
-        error: undefined,
-      },
-      skusReducer: {
-        loading: false,
-        skus: [],
         error: undefined,
       },
     };

@@ -9,7 +9,6 @@ describe("Header", () => {
     it("should render with success", () => {
       cy.getByTestId("Header_logo_img").should("be.visible");
       cy.getByTestId("Header_home_link").should("be.visible");
-      cy.getByTestId("Header_darkMode_button").should("be.visible");
       cy.getByTestId("Header_userAvatar_button").should("be.visible");
     });
 

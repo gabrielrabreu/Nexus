@@ -10,5 +10,4 @@ interface IUser {
   email: string;
   avatarUrl: string;
   accessToken: string;
-  darkMode: boolean;
 }
