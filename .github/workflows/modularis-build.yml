@@ -47,9 +47,10 @@ jobs:
       - name: Run SonarCloud analysis
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
-          SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY_MODULARIS }}
-          SONAR_ORGANIZATION: ${{ secrets.SONAR_ORGANIZATION }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          SONAR_PROJECT_KEY: "abreu-dev_Nexus_Modularis"
+          SONAR_PROJECT_NAME: "abreu-dev_Nexus_Modularis"
+          SONAR_ORGANIZATION: "abreu-dev"
+          SONAR_HOST_URL: "https://sonarcloud.io"
           SONAR_TOKEN: "${{ secrets.SONAR_TOKEN_MODULARIS }}"
         run: |
           dotnet sonarscanner begin \
@@ -57,6 +58,7 @@ jobs:
             /o:$SONAR_ORGANIZATION \
             /d:sonar.host.url=$SONAR_HOST_URL \
             /d:sonar.login=$SONAR_TOKEN \
+            -Dsonar.projectName=$SONAR_PROJECT_NAME \
             /d:sonar.exclusions=**/Migrations/** \
             /d:sonar.coverage.exclusions="**/Migrations/**" \
             /d:sonar.cs.opencover.reportsPaths=tests/**/coverage.opencover.xml
