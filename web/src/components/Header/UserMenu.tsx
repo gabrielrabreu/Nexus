@@ -1,8 +1,10 @@
 import { useRef } from "react";
 import { ConnectedProps, connect } from "react-redux";
-import { XIcon } from "lucide-react";
+import { NavLink } from "react-router-dom";
+import { PackageSearchIcon, XIcon } from "lucide-react";
 
 import { logout } from "@/components/Auth/Auth.reducers";
+import { PATH } from "@/constants/paths";
 import { useOutsideClick } from "@/hooks/useOutsideClick";
 import { RootState } from "@/store/store";
 
@@ -61,6 +63,14 @@ const _UserMenu: React.FC<Props> = ({ isVisible, onClose, user, logout }) => {
                 </button>
               </div>
               <div className="mt-4 px-8 h-full overflow-auto text-sm text-black">
+                <NavLink
+                  to={PATH.LIST_SKUS}
+                  className="flex items-center p-2 my-2 rounded-md w-full hover:bg-gray-200 transition-all duration-300"
+                  onClick={onClose}
+                >
+                  <PackageSearchIcon className="text-dark-surface-500 mr-2" />
+                  SKUs
+                </NavLink>
                 <button
                   className="flex items-center p-2 my-2 rounded-md w-full hover:bg-gray-200 transition-all duration-300"
                   type="button"
