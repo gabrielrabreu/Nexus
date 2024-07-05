@@ -48,4 +48,4 @@ export const authSlice = createSlice({
 
 export const { logout, loadFromStorage } = authSlice.actions;
 
-export default authSlice.reducer;
+export const authReducer = authSlice.reducer;

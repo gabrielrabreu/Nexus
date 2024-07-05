@@ -4,12 +4,11 @@ import { expect } from "chai";
 
 import { renderWithProvider } from "@/utils/test-utils";
 import { httpClient } from "@/libs/axios/axios.config";
-
-import { Login } from "./Login";
+import { LoginForm } from "./LoginForm";
 
 const mockAxios = new MockAdapter(httpClient);
 
-describe("Login", () => {
+describe("LoginForm", () => {
   context("success", () => {
     it("renders login form correctly", () => {
       const initialState = {
@@ -23,7 +22,7 @@ describe("Login", () => {
 
       renderWithProvider(
         <MemoryRouter>
-          <Login />
+          <LoginForm />
         </MemoryRouter>,
         initialState,
       );
@@ -56,7 +55,7 @@ describe("Login", () => {
 
       const { store } = renderWithProvider(
         <MemoryRouter>
-          <Login />
+          <LoginForm />
         </MemoryRouter>,
         initialState,
       );
@@ -93,7 +92,7 @@ describe("Login", () => {
 
       const { store } = renderWithProvider(
         <MemoryRouter>
-          <Login />
+          <LoginForm />
         </MemoryRouter>,
         initialState,
       );

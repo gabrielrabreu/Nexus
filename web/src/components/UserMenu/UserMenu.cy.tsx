@@ -1,7 +1,8 @@
+import { MemoryRouter } from "react-router-dom";
+
 import { renderWithProvider } from "@/utils/test-utils";
 
 import { UserMenu } from "./UserMenu";
-import { MemoryRouter } from "react-router-dom";
 
 describe("UserMenu", () => {
   it("renders user menu when visible", () => {

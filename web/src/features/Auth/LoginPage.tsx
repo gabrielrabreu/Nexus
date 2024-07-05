@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 
-import { Login } from "@/components/Auth/Login";
+import { LoginForm } from "./LoginForm";
 
 const _LoginPage: React.FC = () => {
   return (
@@ -22,7 +22,7 @@ const _LoginPage: React.FC = () => {
           ></div>
           <div className="w-full max-w-md z-10"></div>
         </div>
-        <Login />
+        <LoginForm />
       </div>
     </div>
   );

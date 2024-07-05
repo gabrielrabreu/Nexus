@@ -2,10 +2,9 @@ import { useState } from "react";
 import { ConnectedProps, connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 
+import { UserMenu } from "@/components/UserMenu/UserMenu";
 import { PATH } from "@/constants/paths";
 import { RootState } from "@/store/store";
-
-import { UserMenu } from "./UserMenu";
 
 const mapStateToProps = (state: RootState) => ({
   user: state.authReducer.user,

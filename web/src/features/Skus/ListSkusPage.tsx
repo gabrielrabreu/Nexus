@@ -1,7 +1,8 @@
 import React, { memo } from "react";
 
-import { ListSkus } from "@/components/Skus/ListSkus";
-import { PageLayout } from "@/pages/layouts/PageLayout";
+import { PageLayout } from "@/layouts/PageLayout";
+
+import { ListSkus } from "./components/ListSkus/ListSkus";
 
 const _ListSkusPage: React.FC = () => {
   return (

@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
-import { PencilIcon, PlusIcon } from "lucide-react";
 import { toast } from "react-toastify";
+import { PencilIcon, PlusIcon } from "lucide-react";
 
-import { AddOrEditSkuModal } from "./AddOrEditSkuModal/AddOrEditSkuModal";
-import { addSku, editSku, listSkus } from "@/services/skus.service";
+import { addSku, editSku, listSkus } from "@/api/skus.api";
+
+import { AddOrEditSkuModal } from "../AddOrEditSkuModal/AddOrEditSkuModal";
 
 const _ListSkus = () => {
   const [skus, setSkus] = useState<ISku[]>([]);

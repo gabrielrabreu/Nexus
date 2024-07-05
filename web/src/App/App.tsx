@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { ConnectedProps, connect } from "react-redux";
 
-import { logout, loadFromStorage } from "@/components/Auth/Auth.reducers";
 import { Loading } from "@/components/Loading/Loading";
+import { loadFromStorage, logout } from "@/features/Auth/Auth.reducers";
 import { Router } from "@/routes";
 import { RootState } from "@/store/store";
 
