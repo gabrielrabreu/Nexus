@@ -3,10 +3,10 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import { Loading } from "@/components/Loading/Loading";
 import { PATH } from "@/constants/paths";
-import { MainLayout } from "@/pages/layouts/MainLayout";
-import { HomePage } from "@/pages/HomePages/HomePage";
-import { LoginPage } from "@/pages/AuthPages/LoginPage";
-import { ListSkusPage } from "@/pages/SkuPages/ListSkusPage";
+import { MainLayout } from "@/layouts/MainLayout";
+import { HomePage } from "@/features/Home/HomePage";
+import { LoginPage } from "@/features/Auth/LoginPage";
+import { ListSkusPage } from "@/features/Skus/ListSkusPage";
 
 export const Router = () => {
   return (

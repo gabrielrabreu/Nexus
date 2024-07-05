@@ -19,7 +19,7 @@ const connector = connect(mapStateToProps, mapDispatchToProps);
 
 interface Props extends ConnectedProps<typeof connector> {}
 
-const _Login: React.FC<Props> = ({ isAuthenticated, login }) => {
+const _LoginForm: React.FC<Props> = ({ isAuthenticated, login }) => {
   const { register, handleSubmit } = useForm<ReqLogin>({
     mode: "onBlur",
   });
@@ -115,4 +115,4 @@ const _Login: React.FC<Props> = ({ isAuthenticated, login }) => {
   );
 };
 
-export const Login = connector(_Login);
+export const LoginForm = connector(_LoginForm);

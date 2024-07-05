@@ -3,8 +3,8 @@ import { ConnectedProps, connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { PackageSearchIcon, XIcon } from "lucide-react";
 
-import { logout } from "@/components/Auth/Auth.reducers";
 import { PATH } from "@/constants/paths";
+import { logout } from "@/features/Auth/Auth.reducers";
 import { useOutsideClick } from "@/hooks/useOutsideClick";
 import { RootState } from "@/store/store";
 
