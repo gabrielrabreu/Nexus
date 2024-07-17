@@ -19,7 +19,7 @@ jobs:
     
     defaults:
       run:
-        working-directory: ./api/modularis
+        working-directory: ./api
 
     steps:
       - name: Checkout code

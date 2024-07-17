@@ -3,7 +3,7 @@ name: Modularis Publish
 on:
   push:
     paths:
-      - './api/modularis/**'
+      - './api/**'
     branches:
       - 'main'
   workflow_dispatch:
