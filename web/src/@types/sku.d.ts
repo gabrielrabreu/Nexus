@@ -12,7 +12,3 @@ interface ISkuForm {
   price: number;
   stock: number;
 }
-
-interface ISkuPagedList {
-  items: ISku[];
-}

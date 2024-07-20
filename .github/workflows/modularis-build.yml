@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - 'main'
+      - 'develop'
   pull_request:
     types: [opened, synchronize, reopened]
   workflow_dispatch:
@@ -18,7 +19,7 @@ jobs:
     
     defaults:
       run:
-        working-directory: ./api/modularis
+        working-directory: ./api
 
     steps:
       - name: Checkout code
@@ -47,21 +48,21 @@ jobs:
       - name: Run SonarCloud analysis
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
-          SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY_MODULARIS }}
-          SONAR_ORGANIZATION: ${{ secrets.SONAR_ORGANIZATION }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          SONAR_PROJECT_KEY: "abreu-dev_Nexus_Modularis"
+          SONAR_ORGANIZATION: "abreu-dev"
+          SONAR_HOST_URL: "https://sonarcloud.io"
           SONAR_TOKEN: "${{ secrets.SONAR_TOKEN_MODULARIS }}"
         run: |
           dotnet sonarscanner begin \
             /k:$SONAR_PROJECT_KEY \
             /o:$SONAR_ORGANIZATION \
             /d:sonar.host.url=$SONAR_HOST_URL \
-            /d:sonar.login=$SONAR_TOKEN \
+            /d:sonar.token=$SONAR_TOKEN \
             /d:sonar.exclusions=**/Migrations/** \
             /d:sonar.coverage.exclusions="**/Migrations/**" \
             /d:sonar.cs.opencover.reportsPaths=tests/**/coverage.opencover.xml
           dotnet build
           dotnet test /p:CollectCoverage=true \
             /p:CoverletOutputFormat=opencover
-          dotnet sonarscanner end /d:sonar.login=$SONAR_TOKEN
+          dotnet sonarscanner end /d:sonar.token=$SONAR_TOKEN
           

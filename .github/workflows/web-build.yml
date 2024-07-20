@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - 'main'
+      - 'develop'
   pull_request:
     types: [opened, synchronize, reopened]
   workflow_dispatch:
@@ -50,16 +51,16 @@ jobs:
       - name: Run SonarCloud analysis
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
-          SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY_WEB }}
-          SONAR_ORGANIZATION: ${{ secrets.SONAR_ORGANIZATION }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          SONAR_PROJECT_KEY: "abreu-dev_Nexus_Web"
+          SONAR_ORGANIZATION: "abreu-dev"
+          SONAR_HOST_URL: "https://sonarcloud.io"
           SONAR_TOKEN: "${{ secrets.SONAR_TOKEN_WEB }}"
         run: |
           sonar-scanner \
             -Dsonar.projectKey=$SONAR_PROJECT_KEY \
             -Dsonar.organization=$SONAR_ORGANIZATION \
             -Dsonar.host.url=$SONAR_HOST_URL \
-            -Dsonar.login=$SONAR_TOKEN \
+            -Dsonar.token=$SONAR_TOKEN \
             -Dsonar.coverage.exclusions="cypress/**/*.*, **/*.d.ts, **/*.cy.tsx, **/*.cy.ts, **/libs/**" \
             -Dsonar.exclusions="**/*.cy.*" \
             -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info

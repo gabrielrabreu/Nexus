@@ -29,7 +29,7 @@ jobs:
       
       - name: Build and push Docker image
         run: |
-          IMAGE_NAME=${{ secrets.DOCKER_USERNAME }}/${{ secrets.WEB_IMAGE_NAME }}
+          IMAGE_NAME=${{ secrets.DOCKER_USERNAME }}/abreu-dev_nexus_web
           COMMIT_SHA=${{ github.sha }}
           docker build -t $IMAGE_NAME:latest -t $IMAGE_NAME:$COMMIT_SHA .
           docker push $IMAGE_NAME:latest

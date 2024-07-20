@@ -1,7 +1,7 @@
 import { AxiosInstance } from "axios";
 import MockAdapter from "axios-mock-adapter";
 
-const setupAxiosSandbox = (axios: AxiosInstance) => {
+export const setupAxiosSandbox = (axios: AxiosInstance) => {
   const mock = new MockAdapter(axios);
 
   mock.onPost("/login").reply((config) => {
@@ -12,40 +12,40 @@ const setupAxiosSandbox = (axios: AxiosInstance) => {
       email: payload["email"],
       avatarUrl: "https://i.pinimg.com/originals/dc/28/a7/dc28a77f18bfc9aaa51c3f61080edda5.jpg",
       accessToken: "5efb5f8a-212b-4b22-a201-ba2958005342",
-      darkMode: false,
     };
     return [200, response]
-  })
-
-  mock.onGet(/\/skus\?.*/).reply(() => {
-    const response = {
-      items: [
-        {
-          id: "SKU001",
-          code: "SKU001",
-          name: "Product A",
-          price: 29.99,
-          stock: 150
-        },
-        {
-          id: "SKU002",
-          code: "SKU002",
-          name: "Product B",
-          price: 49.99,
-          stock: 200
-        },
-        {
-          id: "SKU003",
-          code: "SKU003",
-          name: "Product C",
-          price: 19.99,
-          stock: 300
-        }
-    ]};
-    
-    return [200, response];
   });
 
+  mock.onGet(/\/skus\?.*/).reply((config) => {
+    const params = new URLSearchParams(config.url?.split('?')[1]);
+    const pageNumber = params.get('pageNumber') ? parseInt(params.get('pageNumber')!) : 1;
+    const pageSize = params.get('pageSize') ? parseInt(params.get('pageSize')!) : 10;
+  
+    const totalItems = 50;
+    const totalPages = Math.ceil(totalItems / pageSize);
+  
+    const startIndex = (pageNumber - 1) * pageSize;
+    const endIndex = startIndex + pageSize;
+    const items = [...Array(totalItems).keys()].map(i => ({
+      id: `SKU${i + 1}`,
+      code: `SKU${i + 1}`,
+      name: `Product ${i + 1}`,
+      price: (Math.random() * 100).toFixed(2),
+      stock: (Math.random() * 10).toFixed(0),
+    })).slice(startIndex, endIndex);
+  
+    const response = {
+      items: items,
+      pageNumber: pageNumber,
+      totalPages: totalPages,
+      totalCount: totalItems,
+      hasPreviousPage: pageNumber > 1,
+      hasNextPage: pageNumber < totalPages,
+    };
+  
+    return [200, response];
+  });
+  
   mock.onPost("/skus").reply((config) => {
     const payload = JSON.parse(config.data);
     const response = {
@@ -70,5 +70,3 @@ const setupAxiosSandbox = (axios: AxiosInstance) => {
     return [200, response];
   });
 };
-
-export default setupAxiosSandbox;
